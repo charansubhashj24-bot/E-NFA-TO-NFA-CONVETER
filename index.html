@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ε-NFA to NFA Converter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>ε-NFA to NFA Converter</h1>
+            <p>Convert your Epsilon-Nondeterministic Finite Automaton into a standard NFA.</p>
+        </header>
+
+        <main>
+            <section class="setup-section">
+                <h2>1. Setup Automaton</h2>
+                <div class="input-group">
+                    <label for="states">States (comma separated):</label>
+                    <input type="text" id="states" placeholder="e.g. q0, q1, q2" value="q0, q1, q2">
+                </div>
+                <div class="input-group">
+                    <label for="alphabet">Alphabet (comma separated):</label>
+                    <input type="text" id="alphabet" placeholder="e.g. a, b" value="a, b">
+                </div>
+                <div class="input-group">
+                    <label for="start-state">Start State:</label>
+                    <input type="text" id="start-state" placeholder="e.g. q0" value="q0">
+                </div>
+                <div class="input-group">
+                    <label for="final-states">Final States (comma separated):</label>
+                    <input type="text" id="final-states" placeholder="e.g. q2" value="q2">
+                </div>
+            </section>
+
+            <section class="transitions-section">
+                <h2>2. Define Transitions</h2>
+                <p class="hint">Use <strong>ε</strong> or <strong>e</strong> for epsilon transitions.</p>
+                <div id="transitions-container">
+                    <div class="transition-row header-row">
+                        <span>From State</span>
+                        <span>Symbol</span>
+                        <span>To State(s)</span>
+                        <span></span>
+                    </div>
+                    <!-- Transition rows will be added here -->
+                </div>
+                <button id="add-transition-btn" class="secondary-btn">+ Add Transition</button>
+            </section>
+
+            <div class="actions">
+                <button id="convert-btn" class="primary-btn">Convert to NFA</button>
+                <button id="sample-btn" class="text-btn">Load Sample</button>
+            </div>
+
+            <section id="results-section" class="hidden">
+                <hr>
+                <h2>Results</h2>
+                
+                <div class="result-block">
+                    <h3>E-Closures</h3>
+                    <div id="e-closure-results"></div>
+                </div>
+
+                <div class="result-block">
+                    <h3>NFA Transition Table</h3>
+                    <div id="nfa-table-container"></div>
+                </div>
+
+                <div class="result-block">
+                    <h3>NFA Final States</h3>
+                    <p id="nfa-final-states-display"></p>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
